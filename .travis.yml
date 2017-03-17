@@ -1,0 +1,29 @@
+sudo: false
+language: python
+matrix:
+  include:
+    - python: 2.7
+      env: TOX_ENV=py27-cext
+    - python: 2.7
+      env: TOX_ENV=py27-nocext
+    - python: 2.7
+      env: TOX_ENV=pep8
+    - python: 3.4
+      env: TOX_ENV=py34-cext
+    - python: 3.4
+      env: TOX_ENV=py34-nocext
+    - python: 3.5
+      env: TOX_ENV=py35-cext
+    - python: 3.5
+      env: TOX_ENV=py35-nocext
+    - python: 3.6
+      env: TOX_ENV=py36-cext
+    - python: 3.6
+      env: TOX_ENV=py36-nocext
+    - python: 3.6
+      env: TOX_ENV=pep8
+
+install:
+  - pip install tox
+
+script: tox -e $TOX_ENV
